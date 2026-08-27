@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,19 +21,6 @@ public class UIManager : MonoBehaviour
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     public void ShowNotiText(string s)
     {
         notiText.text = s;
@@ -40,19 +28,18 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        player.transform.position = new Vector3(0f, 88f, -86.25f);
-        player.HP = 100;
-        ShowNotiText("Restart");
+        //player.transform.position = new Vector3(0f, 88f, -86.25f);
+        //player.HP = 100;
+        //ShowNotiText("Restart");
         Time.timeScale = 1f;
-        ShowHideRestartButton(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //ShowHideRestartButton(false);
     }
 
 
     public void ShowHideRestartButton(bool flag)
     {
         restartButton.SetActive(flag);
-    } 
-
-
+    }
 
 }
